@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analysis</title>
+    <link rel="stylesheet" href="daily.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Analysis for <span id="city-name">Chennai</span></h1>
+        <div class="hourly-analysis">
+            <h2>Hourly Weather Analysis</h2>
+            <canvas id="hourlyChart"></canvas>
+        </div>
+        <div class="daily-analysis">
+            <h2>Daily Weather Analysis</h2>
+            <canvas id="dailyChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const ctxHourly = document.getElementById('hourlyChart').getContext('2d');
+        const hourlyChart = new Chart(ctxHourly, {
+            type: 'line',
+            data: {
+                labels: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00'], // Example hours
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: [20, 18, 17, 16, 15, 14], // Example data
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Hour'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Temperature (°C)'
+                        }
+                    }
+                }
+            }
+        });
+
+        const ctxDaily = document.getElementById('dailyChart').getContext('2d');
+        const dailyChart = new Chart(ctxDaily, {
+            type: 'bar',
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                    label: 'Average Temperature (°C)',
+                    data: [22, 24, 21, 23, 25, 22, 20], // Example data
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Day of the Week'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Temperature (°C)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

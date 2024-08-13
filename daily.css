@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:#D1E9F6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+    color: black;
+}
+
+.hourly-analysis, .daily-analysis {
+    margin-bottom: 40px;
+}
+
+canvas {
+    max-width: 80%;
+}

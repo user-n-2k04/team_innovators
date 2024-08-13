@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWatch Login</title>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: url('two1.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+        .login-container {
+            background: background: rgba(0, 0, 255, 0.7);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .login-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .login-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .login-container input[type="submit"],
+        .login-container input[type="reset"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #1e90ff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-container input[type="submit"]:hover,
+        .login-container input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function authenticate() {
+            var name = document.getElementById("log");
+            var pwd = document.getElementById("pwd");
+
+            var users = ["ram", "radha", "guna"];
+            var passwords = ["sita", "krishna", "secret"];
+
+            if (users.indexOf(name.value) == -1) {
+                alert("Invalid user name... try again...");
+                name.select();
+                return false;
+            } else if (passwords[users.indexOf(name.value)] != pwd.value) {
+                alert("Invalid password... try again...");
+                pwd.select();
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <img src="one1.gif" alt="Sky Watch">
+        <h1>Login</h1>
+        <form action="index.html" onSubmit="return authenticate()">
+            <input id="log" type="text" placeholder="User Name" required autofocus />
+            <input id="pwd" type="password" placeholder="Password" required />
+            <input type="submit" value="Login">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>
